@@ -1,0 +1,31 @@
+FORMAT: 1A
+
+# News website
+This API will be used in website with news, categories and gallery.
+
+# News website Root [/]
+News website Home page
+
+## Retrieve Home Page [GET]
++ Response 200
+
+# Group News
+Group containing the news
+
+## news [/news/{id}]
+Each news contains category and image, so the news has these parameters:
+    - id
+    - title
+    - content
+    - categoryId
+    - imageId
+    
++ Parameters
+    + id (string)
+
++ Model
+
+### List news [GET]
++ Response 200
+
+    [news][]
