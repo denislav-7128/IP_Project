@@ -26,5 +26,23 @@
       "body": "pass",
       "password": "pass"
     }
+  ],
+  "categories": [
+    {
+      "name": "Category 1",
+      "id": 13
+    },
+    {
+      "name": "cat22",
+      "id": 17
+    },
+    {
+      "name": "3c",
+      "id": 18
+    },
+    {
+      "name": "new",
+      "id": 19
+    }
   ]
 }
