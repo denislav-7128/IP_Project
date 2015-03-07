@@ -44,5 +44,27 @@
       "name": "new",
       "id": 19
     }
+  ],
+  "news": [
+    {
+      "title": "t1",
+      "categoryId": 13,
+      "id": 1
+    },
+    {
+      "title": "t2",
+      "categoryId": 13,
+      "id": 2
+    },
+    {
+      "title": "TT#3",
+      "categoryId": 18,
+      "id": 3
+    },
+    {
+      "title": "new",
+      "categoryId": 17,
+      "id": 4
+    }
   ]
 }
