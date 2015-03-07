@@ -13,5 +13,18 @@
       "body": "some comment",
       "postId": 1
     }
+  ],
+  "imgs": [
+    {
+      "url": "http://www.moviehdwallpapers.com/wp-content/uploads/2014/10/Getty-Images-Photo-by-Henrik-Sorensen-451006719.jpg",
+      "id": 4
+    }
+  ],
+  "password": [
+    {
+      "id": 1,
+      "body": "pass",
+      "password": "pass"
+    }
   ]
 }
