@@ -48,21 +48,25 @@
   "news": [
     {
       "title": "t1",
+      "content": "content n1",
       "categoryId": 13,
       "id": 1
     },
     {
       "title": "t2",
+      "content": "c2",
       "categoryId": 13,
       "id": 2
     },
     {
       "title": "TT#3",
+      "content": "c3",
       "categoryId": 18,
       "id": 3
     },
     {
       "title": "new",
+      "content": "New content",
       "categoryId": 17,
       "id": 4
     }

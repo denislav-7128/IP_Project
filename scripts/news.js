@@ -86,6 +86,8 @@ $(document).ready(function(){
 				if (user_pass == this.password) {
 					
 					var input_val = $("input#input1").val();
+					
+					var content_val = $("textarea#content").val();
 
 					var category = $("select#categories").val();
 
@@ -95,7 +97,8 @@ $(document).ready(function(){
 			  			method: 'POST',
 			  			data: {
 			    			title: input_val,
-			    			categoryId: category
+			    			categoryId: category,
+			    			content: content_val
 			  			}
 					}).then(function(data) {
 			  			console.log(data);
@@ -141,6 +144,7 @@ $(document).ready(function(){
 				var newsTitle = this.title;
 				var newsId = this.id;//
 				var categoryId = this.categoryId;//
+				var content = this.content;//
 
 				$.ajax({
 					url: root + '/categories/'+this.categoryId,
@@ -152,7 +156,7 @@ $(document).ready(function(){
 					list = $("div.news");					
 					newElement = $("<li/>");
 					
-					newElement.text(newsTitle + " | "+ newsId + " | " + categoryId + " | " + categoryName);
+					newElement.text(newsTitle + " | "+ newsId + " | " + categoryId + " | " + categoryName + " | Desc: "+ content);
 					list.append(newElement);
 
 				});
