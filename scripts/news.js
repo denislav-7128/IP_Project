@@ -199,5 +199,95 @@ $(document).ready(function(){
 
 
 
+// Delete and Edit news ---
+
+		$.ajax({
+			url: root + '/news',
+		  	method: 'GET'
+		}).then(processNewsEditResponse, handleError);
+
+
+		var h=0;
+		function appendNews(list, post) {
+
+			list = $("div.edit_news select#news");
+
+			var newElement = $("<option value="+post.id+">");
+			newElement.text(post.title);
+			list.append(newElement);
+			
+			// Delete and edit buttons
+			h++;
+			if (h==1) {
+				list = $('div.edit_news');
+
+				var newElement = $("<button id='edit' class='btn btn-default' style='margin-left: 10px;' title='Edit' > <img src='images/pencil.png'> </button>");
+				list.append(newElement);
+
+				var newElement = $("<button id='delete' class='btn btn-danger' style='margin-left: 10px;' title='Delete' >X</button>");
+				list.append(newElement);
+			}
+
+		}
+
+
+		function processNewsEditResponse(response) {
+			var list = $('div.edit_news');
+
+			var c=0;
+			var last_id=0;
+			$.each(response, function(){
+				c++;
+				last_id = this.id;
+				appendNews(list, this);
+			});
+
+
+	
+			// Delete news
+			    var delete_button = $("button#delete");
+
+				$(delete_button).on("click", function() { 
+
+					$.ajax({
+					  	url: root + '/password',
+						method: 'GET'
+					}).then(function (response){
+
+						var user_pass = prompt("Enter password", "");
+
+						$.each(response, function(){
+								
+							if (user_pass == this.password) {
+
+								var val = $("div.edit_news select#news").val();
+								console.log("Delete news with name="+ val);
+
+								$.ajax({
+									url: root + '/news/'+ val,
+									method: 'DELETE'
+								});
+
+								//  ------------
+
+					    		var currentOption = $("div.edit_news option[value='"+val+"']");
+							    currentOption.remove();			
+								$("div#edit_content_news").empty();
+								$('select#categories').css("visibility","hidden");
+
+
+						    } else {
+								alert("Wrong password");
+							}
+
+						});
+					
+					});
+
+				});
+
+
+		}
+
 
 });
