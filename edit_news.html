@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Ajax</title>
+
+	<script src="libs/jquery-2.1.1.js"></script>
+	<script src="scripts/news.js"></script>
+
+
+	<!-- Bootstrap -->
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+
+	<!-- Optional theme -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+
+  <style type="text/css">
+    button#edit img {
+      width: 18px;
+    }
+    select#categories {
+       visibility:hidden;
+      }
+
+  </style>
+
+</head>
+
+
+<body>
+
+    <div class="container">
+        <div class="header">
+
+            <!-- Fixed navbar -->
+            <nav class="navbar navbar-default navbar-fixed-top">
+              <div class="container">
+                <div class="navbar-header">
+                  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                  </button>
+                  <a class="navbar-brand" href="#">Project name</a>
+                </div>
+                <div id="navbar" class="navbar-collapse collapse">
+                  <ul class="nav navbar-nav">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="./categories.html">Categories</a></li>
+                    <!-- <li><a href="#">News</a></li> -->
+                    <li class="active dropdown">
+                      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">News <span class="caret"></span></a>
+                      <ul class="dropdown-menu" role="menu">
+                        <li><a href="./add_news.html">Add news</a></li>
+                        <li><a href="./edit_news.html">Edit news</a></li>
+                        <li><a href="./news.html">View all news</a></li>
+                        
+                      </ul>
+                    </li>
+                  </ul>
+                  <ul class="nav navbar-nav navbar-right">
+                    <li><a href="../navbar/">Default</a></li>
+                    <li><a href="../navbar-static-top/">Static top</a></li>
+                    <li class="active"><a href="./">Fixed top <span class="sr-only">(current)</span></a></li>
+                  </ul>
+                </div><!--/.nav-collapse -->
+              </div>
+            </nav>
+        
+        </div>
+
+
+
+        <br><br><br>
+
+        <h1>Edit News</h1>
+        <br>
+
+        <div class="row">
+
+            <div class="col-md-2">
+            </div>
+            
+            <div class="col-md-8">
+    
+    
+            <div class="form-inline">
+
+                <div class="form-group">
+
+                    <label for="news">News title</label>
+                    <br>
+
+                    <div class="input-group">
+                        <div class="edit_news" id="edit_news">
+                            <select id="news" class="form-control"></select>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div id="edit_content_news"></div>
+                <select id="categories" class="form-control"></select>
+            </div>
+
+        </div> 
+
+    
+    </div> <!-- /container -->
+
+
+
+</body>
+</html>
+
+

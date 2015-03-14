@@ -3,7 +3,9 @@
 
 <head>
 	<title>Ajax</title>
-</head>
+
+	<script src="libs/jquery-2.1.1.js"></script>
+	<script src="scripts/news.js"></script>
 
 
 	<!-- Bootstrap -->
@@ -17,13 +19,9 @@
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 
 
-	<style type="text/css">
-    	button#edit img {
-      	width: 18px;
-    	}
-    </style>
+</head>
 
-	
+
 <body>
 
 	<div class="container">
@@ -44,9 +42,9 @@
 		        <div id="navbar" class="navbar-collapse collapse">
 		          <ul class="nav navbar-nav">
 		            <li><a href="#">Home</a></li>
-		            <li class="active"><a href="./categories.html">Categories</a></li>
+		            <li><a href="./categories.html">Categories</a></li>
 		            <!-- <li><a href="#">News</a></li> -->
-		            <li class="dropdown">
+		            <li class="active dropdown">
 		              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">News <span class="caret"></span></a>
 		              <ul class="dropdown-menu" role="menu">
 		                <li><a href="./add_news.html">Add news</a></li>
@@ -64,14 +62,14 @@
 		        </div><!--/.nav-collapse -->
 		      </div>
 		    </nav>
-		  
+
+        <!-- <h3 class="text-muted">News</h3> -->
+
 		</div>
-    
-
-
+        
 		<br><br><br>
-		
-  		<h1>Categories</h1>
+  
+  		<h1>Add News</h1>
         <br>
 
 
@@ -79,59 +77,45 @@
 
 		<div class="row">
 
-		    <div class="col-md-2">
-		    </div>
+	  		<div class="col-md-2"></div>
+	  		
+	  		
+	  		<div class="col-md-8">
 		
-		    <div class="col-md-8">
+				<div class="form-group">
+				    <label for="exampleInputEmail1">Title</label>
+				    <input type="text" class="form-control" id="input1" placeholder="Enter title">
+			  	</div>
 
 
+				<div class="form-group">
+				  	<label for="categories">Category</label>
+				  	<select id="categories" class="form-control">
+			      	</select>
+			  	</div>
+	    
 
-	  			<h3>Add category</h3>
-
-				<div class="form-inline">
-
-					<input id="add_category_text" class="form-control">
-					<button id="add_category" class="btn btn-primary" >Add category</button>
-
-				</div>
-
-
-				<br><br>
-		
-
-				<h3>Edit categories</h3>
-				
-				<div class="form-inline">
-
-					<div class="categories" id="list_categories">
-						<select id="categories" class="form-control"></select>
-					</div>
-				
-				</div>
+				<div class="form-group">
+				  	<label for="categories">Content</label>
+					<textarea class="form-control" rows="3" id="content"></textarea>
+			  	</div>
 
 
+				<div class="form-group">
+				    <label for="exampleInputEmail1">Image</label>
+				    <input type="text" class="form-control" id="add_news_url" placeholder="Image url">
+			  	</div>
 
-				<div class="form-inline">
-					<div id="edit_category" style="margin-top:20px">
-					</div>
+				<button type="button" id="button1" class="btn btn-primary">Add news</button>
 
-			    </div>
-	    	
-	    	</div>
-	    	
-	    </div>
+			</div>
 
-
+		</div>
 
     </div> <!-- /container -->
 
-	<script src="libs/jquery-2.1.1.js"></script>
-	<script src="scripts/categories_ajax.js"></script>
-	
-    <script src="libs/bootstrap-3.3.2-dist/js/bootstrap.min.js"></script>
-    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <script src="libs/bootstrap-3.3.2-dist/js/ie10-viewport-bug-workaround.js"></script>
 
-	
+
+
 </body>
 </html>

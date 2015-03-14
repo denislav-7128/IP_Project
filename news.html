@@ -3,34 +3,117 @@
 
 <head>
 	<title>Ajax</title>
+	
+
+	<style type="text/css">
+
+		span#news_title {
+			font-size: 20px;
+			text-decoration: underline;
+		}
+
+		p#news_category {
+			margin-top: 5px;
+			margin-bottom: 15px;
+			font-size: 12px;
+		}
+
+		p#news_content {
+			margin-left: 20px;
+			font-style: italic;
+			margin-bottom: 15px;
+		}
+		
+		img#news_image {
+			margin-left: 10px;
+			margin-bottom: 50px;
+			display: block;
+		}
+		
+	</style>
+
+
+	<!-- Bootstrap -->
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+
+	<!-- Optional theme -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+
+
 </head>
 
-<body >
+<body>
 
+	<div class="container">
+		<div class="header">
 
-	<ul id="ul1">..</ul>
+	   		<!-- Fixed navbar -->
+		    <nav class="navbar navbar-default navbar-fixed-top">
+		      <div class="container">
+		        <div class="navbar-header">
+		          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+		            <span class="sr-only">Toggle navigation</span>
+		            <span class="icon-bar"></span>
+		            <span class="icon-bar"></span>
+		            <span class="icon-bar"></span>
+		          </button>
+		          <a class="navbar-brand" href="#">Project name</a>
+		        </div>
+		        <div id="navbar" class="navbar-collapse collapse">
+		          <ul class="nav navbar-nav">
+		            <li><a href="#">Home</a></li>
+		            <li><a href="./categories.html">Categories</a></li>
+		            <!-- <li><a href="#">News</a></li> -->
+		            <li class="active dropdown">
+		              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">News <span class="caret"></span></a>
+		              <ul class="dropdown-menu" role="menu">
+		                <li><a href="./add_news.html">Add news</a></li>
+		                <li><a href="./edit_news.html">Edit news</a></li>
+		                <li><a href="./news.html">View all news</a></li>
+		                
+		              </ul>
+		            </li>
+		          </ul>
+		          <ul class="nav navbar-nav navbar-right">
+		            <li><a href="../navbar/">Default</a></li>
+		            <li><a href="../navbar-static-top/">Static top</a></li>
+		            <li class="active"><a href="./">Fixed top <span class="sr-only">(current)</span></a></li>
+		          </ul>
+		        </div><!--/.nav-collapse -->
+		      </div>
+		    </nav>
 
-
-	Title<input id="input1">
-	<br>
-	Category:<select id="categories" ></select>
-	<br>
-	<textarea id="content"></textarea>
-	<br>
-	<button id="button1">Button 1</button>
-
-
-
-
-	<br><br>
-	<h1>News</h1>
-	<div class="news" id="list_news">
+		</div>
+        
+		<br><br><br>
 		
-	</div>
+		<h1>News</h1>
+        <br>
+  	
+  	  	<div class="col-md-12" style="background:#EBEBEB;">
+		
+			<div class="news" id="list_news">
+			</div>
+
+		</div>
+
+    
+    </div> <!-- /container -->
+
+
 
 
 	<script src="libs/jquery-2.1.1.js"></script>
 	<script src="scripts/news.js"></script>
+
+    <script src="libs/bootstrap-3.3.2-dist/js/bootstrap.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="libs/bootstrap-3.3.2-dist/js/ie10-viewport-bug-workaround.js"></script>
+
 
 
 </body>
