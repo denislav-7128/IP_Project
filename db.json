@@ -50,24 +50,28 @@
       "title": "t1",
       "content": "content n1",
       "categoryId": 13,
+      "url": "http://www.moviehdwallpapers.com/wp-content/uploads/2014/10/Getty-Images-Photo-by-Henrik-Sorensen-451006719.jpg",
       "id": 1
     },
     {
       "title": "t2",
       "content": "c2",
       "categoryId": 13,
+      "url": "http://bg.lipsum.com/images/lipsum05.gif",
       "id": 2
     },
     {
       "title": "TT#3",
       "content": "c3",
       "categoryId": 18,
+      "url": "http://bg.lipsum.com/images/lipsum04.gif",
       "id": 3
     },
     {
       "title": "new",
       "content": "New content",
       "categoryId": 17,
+      "url": "",
       "id": 4
     }
   ]
