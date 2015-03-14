@@ -91,6 +91,7 @@ $(document).ready(function(){
 
 					var category = $("select#categories").val();
 
+					var url_val = $("input#add_news_url").val();
 
 					// Insert news
 					$.ajax('http://localhost:3000/news', {
@@ -98,7 +99,8 @@ $(document).ready(function(){
 			  			data: {
 			    			title: input_val,
 			    			categoryId: category,
-			    			content: content_val
+			    			content: content_val,
+			    			url: url_val
 			  			}
 					}).then(function(data) {
 			  			console.log(data);
@@ -137,14 +139,21 @@ $(document).ready(function(){
 
 		function processNewsResponse(response) {
 			var list = $('div.news');
-			var newElement = $("<li/>");
+
+			var li_Element;
+			var span_Element;
+			var p_Element;
+			var p2_Element;
+			var img_Element;
+
 
 			$.each(response, function(){
 
+				// var newsId = this.id;
 				var newsTitle = this.title;
-				var newsId = this.id;//
-				var categoryId = this.categoryId;//
-				var content = this.content;//
+				var categoryId = this.categoryId;
+				var content = this.content;
+				var image_url = this.url;
 
 				$.ajax({
 					url: root + '/categories/'+this.categoryId,
@@ -153,11 +162,29 @@ $(document).ready(function(){
 
 					var categoryName = data.name;
 
-					list = $("div.news");					
-					newElement = $("<li/>");
+					list = $("div.news");		
 					
-					newElement.text(newsTitle + " | "+ newsId + " | " + categoryId + " | " + categoryName + " | Desc: "+ content);
-					list.append(newElement);
+					li_Element = $("<li/>");
+					span_Element = $("<span id=news_title />");
+					p_Element = $("<p id='news_content'/>");
+					p2_Element = $("<p id='news_category'/>");
+					img_Element = $("<img id='news_image' style='width:110px; height:100px' />");
+					
+
+					span_Element.text(newsTitle);
+					p_Element.text(content);
+					p2_Element.text("Category: "+categoryName);
+					img_Element.prop("src", image_url);
+
+
+					// Append elements
+					list.append(span_Element);
+					list.append(p2_Element);
+					list.append(p_Element);
+
+					if (image_url.length != 0) {
+						list.append(img_Element);
+					}
 
 				});
 
@@ -166,6 +193,10 @@ $(document).ready(function(){
 		}
 
 	// END of List news ---
+
+
+
+
 
 
 
