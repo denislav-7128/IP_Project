@@ -199,7 +199,7 @@ $(document).ready(function(){
 
 
 
-// Delete and Edit news ---
+	// Delete and Edit news ---
 
 		$.ajax({
 			url: root + '/news',
@@ -287,7 +287,156 @@ $(document).ready(function(){
 				});
 
 
+
+
+
+
+			// Edit news
+			    var edit_button = "button#edit";
+
+				$(edit_button).on("click", function() {
+
+					var val = $("div.edit_news select#news").val();
+					console.log("Edit news with name="+ val);
+
+					$.ajax({
+					  url: root + '/news/'+val,
+					  method: 'GET'
+					}).then(function(data) {
+
+					var titleName = data.title;
+					var categoryId = data.categoryId;
+					var content_val = data.content;
+					var url_val = data.url;
+
+
+					// Clear the div for each button press
+					$("div#edit_content_news").empty();
+					var c=0;
+
+
+					// Get category Name from category Id
+					$.ajax({
+						url: root + '/categories',
+			  			method: 'GET'
+					}).then(function(response){
+
+						$.each(response, function(list,post){
+
+							console.log(post.name);
+							console.log(post.id);
+						
+							var categoryName = post.name;
+
+
+							var list = $('div#edit_content_news select#categories');
+							
+							$('select#categories').css("visibility","visible");
+
+
+							var Category_Element;
+
+							Category_Element = $("<option value="+post.id+">");
+							Category_Element.text(post.name);
+							list.append(Category_Element);
+					
+						});
+
+						// Set selected value for dropdown menu - categories
+						$("select#categories option[value='"+categoryId+"']").attr("selected", "selected");
+
+					});
+
+
+
+						var list = $('div#edit_content_news');
+					
+
+						var save_button_Element = $("<input type='button' value='Save' id='saveEdit' class='btn btn-primary' style='float:right; margin-bottom:5px;' >");
+						var title_Element = $("<label for='title' id='TitleLabel' style='display:block;margin-top:30px;'> Title</label>		<input value='"+titleName+"' id='title' class='form-control' style='display:block;'>");
+						var content_Element = $("<label for='content' id='ContentLabel' style='display:block;margin-top:15px;'> Content</label>		<textarea  id='content' class='form-control' >"+content_val+"</textarea>");
+						var url_Element = $("<label for='url' id='UrlLabel' style='display:block;margin-top:15px;'> Url</label>		<input value='"+url_val+"' id='url' class='form-control' >");
+						var Category_Element_label = $("<label for='categories' id='CategoryLabel' style='display:block;margin-top:15px;'> Category</label>");
+						
+
+						// Append elements
+						list.append(save_button_Element);
+						list.append(title_Element);
+						list.append(content_Element);
+						list.append(url_Element);
+						list.append(Category_Element_label);
+
+						
+						$("input#saveEdit").on("click", function() {
+						
+							$.ajax({
+					  			url: root + '/password',
+								method: 'GET'
+							}).then(function (response){
+
+
+								var user_pass = prompt("Enter password", "");
+
+								$.each(response, function(){
+								
+									if (user_pass == this.password) {
+						
+										var new_title = $("input#title").val();
+										var new_categoryId = $("select#categories").val();
+										var new_content = $("textarea#content").val();
+										var new_url = $("input#url").val();
+										
+
+										// Insert edited values
+										$.ajax({
+											url: root + '/news/'+data.id,
+								  			method: 'PUT',
+								  			data: {
+								    			title: new_title,
+								    			categoryId: new_categoryId,
+								    			content: new_content,
+								    			url: new_url
+								    		}
+							
+										}).then(function(data) {
+											console.log(data);
+											
+											// Empty the div
+											$("div.edit_news select#news").empty();
+											$("div#edit_content_news").empty();
+											$('select#categories').css("visibility","hidden");
+
+
+											// Get the new list of news
+											$.ajax({
+												url: root + '/news',
+												method: 'GET'
+											}).then(processNewsEditResponse, handleError);
+
+										});
+
+								    } else {
+										alert("Wrong password");
+									}
+
+
+								});
+							
+							});
+						});
+
+
+					});
+
+				});		
+
+
+
 		}
+		
+	// END of Delete and Edit news ---
+
+
 
 
 });
